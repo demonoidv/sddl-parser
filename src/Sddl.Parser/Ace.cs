@@ -411,7 +411,6 @@ namespace Sddl.Parser
         public override bool Equals(object obj)
         {
             return obj is Ace ace &&
-                   Raw == ace.Raw &&
                    AceType == ace.AceType &&
                    EqualityComparer<string[]>.Default.Equals(AceFlags, ace.AceFlags) &&
                    EqualityComparer<string[]>.Default.Equals(Rights, ace.Rights) &&
