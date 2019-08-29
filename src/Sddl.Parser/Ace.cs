@@ -412,8 +412,8 @@ namespace Sddl.Parser
         {
             return obj is Ace ace &&
                    AceType == ace.AceType &&
-                   EqualityComparer<string[]>.Default.Equals(AceFlags, ace.AceFlags) &&
-                   EqualityComparer<string[]>.Default.Equals(Rights, ace.Rights) &&
+                   ((AceFlags is null && ace.AceFlags is null) || (!(AceFlags is null) && !(ace.AceFlags is null) && AceFlags.Except(ace.AceFlags).Count() == 0)) &&
+                   ((Rights is null && ace.Rights is null) || (!(Rights is null) && !(ace.Rights is null) && Rights.Except(ace.Rights).Count() == 0)) &&
                    ObjectGuid == ace.ObjectGuid &&
                    InheritObjectGuid == ace.InheritObjectGuid &&
                    AceSid == ace.AceSid;
